@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Test.Datadog.Api
 {
-    public class MyLogging : IMyLogging
+    public class LoggingService : ILoggingService
     {
-        private readonly ILogger<MyLogging> _logger;
+        private readonly ILogger<LoggingService> _logger;
 
-        public MyLogging(ILogger<MyLogging> logger)
+        public LoggingService(ILogger<LoggingService> logger)
         {
             _logger = logger;
 
@@ -46,7 +46,6 @@ namespace Test.Datadog.Api
         {
             try
             {
-                var span = Tracer.Instance.ActiveScope;
                 switch (level)
                 {
                     case LogLevel.Information:

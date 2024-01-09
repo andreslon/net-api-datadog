@@ -8,7 +8,7 @@ namespace Test.Datadog.Api
 {
     public static class LoggingConfiguration
     {
-        public static IServiceCollection AddMyLogging(this IServiceCollection services)
+        public static IServiceCollection AddTestLogging(this IServiceCollection services)
         {
             var loggerConfig = new LoggerConfiguration();
             loggerConfig
@@ -30,7 +30,7 @@ namespace Test.Datadog.Api
                 .MinimumLevel.Override("System", LogEventLevel.Warning);
             var logger = loggerConfig.CreateLogger();
             services.AddLogging(builder => builder.AddSerilog(logger));
-            services.AddSingleton<IMyLogging, MyLogging>();
+            services.AddSingleton<ILoggingService, LoggingService>();
 
             return services;
         }

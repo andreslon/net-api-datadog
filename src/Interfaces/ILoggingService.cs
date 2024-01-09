@@ -2,7 +2,7 @@ using System;
 
 namespace Test.Datadog.Api
 {
-    public interface IMyLogging
+    public interface ILoggingService
     {
         void SetTag(string key, string value);
         void LogInfo(string message, object? metadata = null);
